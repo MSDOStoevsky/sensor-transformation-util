@@ -2,8 +2,7 @@
 const yargs = require("yargs")
 	.usage(`Usage: npx transform [-java] path/to/InputFile.java`)
 	.describe({
-		java: "File is a java file",
-		pattern: "Regex pattern to extract",
+		java: "File is a java file"
 	})
 	.boolean(["java", "s"])
 	.help()
