@@ -5,8 +5,8 @@ const fs = require("fs");
 const _ = require("lodash");
 const JavaLexer = require("./javaLexer");
 
-const BAD_JAVA_MESSAGE =
-	"[FATAL] Something about your Java file doesn't seem right. I can't process it.";
+const BAD_FILE_MESSAGE =
+	"[FATAL] Something about your file doesn't seem right. I can't process it.";
 
 /**
  * Main generator function.
@@ -19,7 +19,7 @@ exports.transform = async (inputFile, isJava) => {
 		inMemoryFile = fs.readFileSync(inputFile, "utf8");
 	} catch (error) {
 		console.log(error);
-		return console.log(BAD_JAVA_MESSAGE);
+		return console.log(BAD_FILE_MESSAGE);
 	}
 
 	let tokenizedFile;
