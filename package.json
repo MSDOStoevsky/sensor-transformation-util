@@ -1,0 +1,21 @@
+{
+	"name": "sensor-transformation-util",
+	"version": "0.0.1",
+	"description": "A format transformer for vehicle sensor files",
+	"main": "./index.js",
+	"author": "Dylan Lettinga <msdostoevsky@protonmail.com> (https://github.com/MSDOStoevsky/)",
+	"license": "MIT",
+	"bin": {
+		"transform": "./cli.js"
+	},
+	"dependencies": {
+		"lodash": "4.17.21",
+		"mustache": "4.1.0",
+		"yargs": "16.2.0"
+	},
+	"devDependencies": {
+		"@types/node": "14.14.35",
+		"@types/yargs": "16.0.0"
+	},
+	"private": true
+}
