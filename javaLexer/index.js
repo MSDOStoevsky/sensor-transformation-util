@@ -24,7 +24,7 @@ exports.tokenize = (inputFile) => {
 
 /**
  * Tokenizes both the function signature and the documentation.
- * @param {*} functionText - the function with documentation text.
+ * @param {string} functionText - the function with documentation text.
  * @return the tokenized function and tokenized documentation.
  */
 const tokenizeFunctionWithDoc = (functionText) => {
@@ -45,7 +45,7 @@ const tokenizeFunctionWithDoc = (functionText) => {
 
 /**
  * Tokenizes the signature of a function.
- * @param {*} signatureText - the string representation of a signature.
+ * @param {string} signatureText - the string representation of a signature.
  * @returns the tokenized signature.
  */
 const tokenizeFunctionSignature = (signatureText) => {
@@ -89,7 +89,7 @@ const tokenizeFunctionSignature = (signatureText) => {
 
 /**
  * Tokenizes the function documentation.
- * @param {*} documentationText - the string of the documentation.
+ * @param {string} documentationText - the string of the documentation.
  * @returns the tokenized function documentation.
  */
 const tokenizeFunctionDocumentation = (documentationText) => {
