@@ -9,7 +9,7 @@ const _ = require("lodash");
  */
 exports.tokenize = (inputFile) => {
 	const matchFunctionWithDoc =
-		/\/\*\*([^\*]|\*(?!\/))*\*\/[\s]*(boolean|int|String|void) \w+\(.*?\);/gms;
+		/\/\*\*([^\*]|\*(?!\/))*\*\/[\s]*(boolean|int|String|void) \w+\(.*?\)( (throws[\s\n]+\w+)|;)/gms;
 
 	let tokenizedFileByFunctionWithDoc;
 	const functionsWithDocs = [];
@@ -29,7 +29,7 @@ exports.tokenize = (inputFile) => {
  */
 const tokenizeFunctionWithDoc = (functionText) => {
 	const matchDocumentation = /\/\*\*([^\*]|\*(?!\/))*\*\//gm;
-	const matchSignature = /\w+ \w+\(.*?\);/g;
+	const matchSignature = /\w+ \w+\(.*?\)( (throws[\s\n]+\w+)|;)/g;
 
 	const documentationToken = matchDocumentation.exec(functionText);
 	const documentationText = documentationToken && documentationToken[0];

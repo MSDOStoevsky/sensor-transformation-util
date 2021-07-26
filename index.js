@@ -33,14 +33,21 @@ exports.transform = async (inputFile, fileType, options) => {
 				break;
 			case "list":
 				const field = options.select;
-				const fieldValues = _.map(tokenizedFile.functionsWithDocs, (functionWithDoc) => {
+				let fieldValues = _.map(tokenizedFile.functionsWithDocs, (functionWithDoc) => {
 					return (
 						_.get(functionWithDoc.signature, field) ||
 						_.get(functionWithDoc.documentation, field)
 					);
 				});
 
-				result = _.join(fieldValues, "\r\n");
+				if (options.regex) {
+					fieldValues = _.filter(fieldValues, (fieldValue) => {
+						const userCriteria = new RegExp(options.regex, "g");
+						return userCriteria.test(fieldValue);
+					});
+				}
+
+				result = _.join(fieldValues, "\n");
 
 				break;
 			default:
